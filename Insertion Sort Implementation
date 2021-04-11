@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace LearningProgramming_CSharp
+{
+    class InsertionSort
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine();
+            int[] intArray = { 20, 35, -15, 7, 55, 1, -22 };
+            Console.WriteLine("Insertion Sort");
+
+            Console.Write("Unsorted Array: [");
+            for (int i = 0; i < intArray.Length; i++)
+            {
+                Console.Write(intArray[i] + "|");
+            }
+            Console.Write("]");
+
+           
+            Console.WriteLine();
+            Console.Write("Sorted Array: [");
+
+            //Transversing array left to right
+            for (int firstUnsortedIndex = 1; firstUnsortedIndex < intArray.Length;
+                firstUnsortedIndex++)
+            {
+                //declaring  newElement that will save the hold the value at pos [firstUnsortedIndex]
+                int newElement = intArray[firstUnsortedIndex];
+                //declaring i which is the index used to traverse the array 
+                int i;
+
+                //Transversing sorted array right to left 
+                for (i = firstUnsortedIndex; i > 0 && intArray[i - 1] > newElement;
+                    i--)
+                {
+                //Shifting Left -> Right
+                    intArray[i] = intArray[i - 1];
+                }
+
+                intArray[i] = newElement;
+            }
+
+
+            for (int i = 0; i < intArray.Length; i++)
+            {
+                Console.Write(intArray[i] + "|");
+            }
+            Console.Write("]");
+
+            Console.WriteLine();
+        }
+    }
+}
