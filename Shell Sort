@@ -1,1 +1,63 @@
+using System;
+
+namespace LearningDSandAlgo
+{
+    class ShellSort
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Shell Sort");
+            int[] myArray = { 20, 30, -15, 7, 55, 1, -22 };
+
+
+            Console.Write("Unsortred Array: [");
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                Console.Write(myArray[i] + "|");
+            }
+            Console.WriteLine("]");
+             
+
+            /*
+             *  gap = array length / 2
+             *  final iteration gap Is Always 1
+             *  after each iteration we want to divide the gap value by 2\
+             *      first iteration gap value 7/2 = 3
+             *      second iteration gap value 3/2 = 1
+             */
+            for (int gap = myArray.Length / 2; gap > 0; gap/=2)
+            {
+
+                for (int i = gap; i < myArray.Length; i++)
+                {
+                    //saves the value we're sorting
+                    int newElement = myArray[i];
+                    
+                    //used to traverse the array
+                    int j = i;
+
+                    while( j >= gap && myArray[j - gap] > newElement)
+                    {
+                        //shifting the element by "gap" positions to the right
+                        myArray[j] = myArray[j - gap ];
+                        /*
+                         * subtracting the gap from 
+                         * j because we're are wanting to compare new elements
+                         */
+                        j -= gap;
+                    }
+                    myArray[j] = newElement;
+                }
+
+            }
+            Console.Write("Sortred Array: [");
+
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                Console.Write(myArray[i] + "|");
+            }
+
+        }
+    }
+}
 
