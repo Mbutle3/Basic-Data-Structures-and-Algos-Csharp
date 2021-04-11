@@ -1,0 +1,125 @@
+using System;
+
+namespace LearningProgramming_CSharp
+{
+    class Selection_Sort
+    {
+        public static void Main(String[] args)
+        {
+            Console.WriteLine("Selection Sort");
+            int[] myArray = { 20, 30, -15, 7, 55, 1, -22 };
+
+            /* Printing out unsorted array*/
+            Console.Write("Unsorted Array:[");
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                Console.Write(myArray[i] + "|");
+            }
+            Console.Write("]");
+
+            /*Declared lastUnsortedIndex variable to equal the length of the array - 1 
+             *  		 Explanation:
+             *  		 This array holds 7 elements, but the starting index is at 0. 
+             *  		 So the array will increment from 0 to 6, [0-6] 
+             *  		 When declared the lastUnsortedIndex variable will equal 7 - 1 which is 6
+             *  		 This ensure that we are at the last index of the array
+             * -The Outer For Loop Will iterate until it reaches the first index [0]
+             * -The lastUnsortedIndex variable will also decrementing each time this loops completes an cycle
+             * -Traversing the array Right - > Left 
+             */
+
+            for (int lastUnsortedIndex = myArray.Length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--)
+            {
+
+                /*Declare the largest known element to held in the first index of the array[0]
+                 */
+                int largest = 0;
+
+                /*Inner for-loop
+                 * -Declare int i = 1; which is the next element after of zero - the starting index/first element
+                 * -if the element at array[i]-(1) is greater than or equal to 
+                 * 	the element at the start of the array[0]
+                 * -The largest will  become the element at [i] 
+                 * -Repeat until it reaches the lastUnsortedInex
+                 * 
+                 * -We can tell this is an unstable because of how the <= sign being used
+                 *  because we must check every index in the array starting index <-> lastUnsortedIndex
+                 * 
+                 */
+
+                for (int i = 1; i <= lastUnsortedIndex; i++)
+                {
+                    /*
+                     * -if the array element at [i] is greater 
+                     * than the array largest element currently known at index [largest]
+                     * 
+                     * - the largest will then be updated to the element at array[i]
+                     */
+
+                    if (myArray[i] > myArray[largest])
+                    {
+                        largest = i;
+                    }
+                }
+                /*
+                 * After reaching the end of the iteration
+                 * The Swap method will swap the element in the array that 
+                 * holds the value "largest" with the "lastUnsortedIndex"
+                 * 
+                 * 0th iteration: [20,30,-15,7,55,1,-22]
+                 * 1st iteration: [20,30,-15,7,-22,1,55]
+                 */
+                swap(myArray, largest, lastUnsortedIndex);
+            }
+
+            Console.Write("\n" + "Sorted Array:[");
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                Console.Write(myArray[i] + "|");
+            }
+            Console.Write("]");
+            Console.WriteLine();
+        }
+
+        public static void swap(int[] array, int i, int j)
+        {
+            /*Swap Method:
+             * -Method takes in an array of unsorted integers
+             * -Method also two indices of the elements we are wanting to swap
+             * 
+             *  Example: 
+             *  Array {1,2,4,3,5}
+             *  i = 4
+             *  j = 3
+             */
+
+            /*1st - Check
+             * -Check if both indexes have the same number just return,
+             * -no point in swapping elements that are the same*/
+
+            if (i == j)
+            {
+                return;
+            }
+
+            /*2nd - Execute Swap
+             * -Create temporary int variable = temp
+             * -Assign the value at array [i] to temp
+             * -Assign the value at array [i] to array [j] 
+             *  overridden the value at array [i] but it's saved to temp
+             * -Assign the value of array [j] to temp 
+             */
+
+            int temp;
+            temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+
+            /*Conclusion
+             * -What use to be at position i is now at position j
+             * -What use to be at position j is not at position i
+             */
+
+        }
+    }
+}
