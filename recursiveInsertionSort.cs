@@ -10,7 +10,7 @@ namespace LearningProgramming_CSharp
         {
             Console.WriteLine();
             int[] intArray = { 20, 35, -15, 7, 55, 1, -22 };
- 
+
             Console.WriteLine("Insertion Sort");
 
             Console.Write("Unsorted Array: [");
@@ -58,6 +58,18 @@ namespace LearningProgramming_CSharp
             }
 
             input[i] = newElement;
+
+
+            Console.WriteLine("Results of call when numItems = " + numItems);
+
+            for (i = 0; i < input.Length; i++)
+            {
+                Console.Write(input[i]);
+                Console.Write(", ");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine(" - - - - - - - - - - - - - - -");
 
         }
     }
