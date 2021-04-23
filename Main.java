@@ -13,13 +13,6 @@ public class Main {
 		 * .contains -> used to check if a list contain an certain element, time complexity is determined by search algorithm
 		 * .remove -> constant run time if you know index
 		 */
-		
-		//DBZ Heroes
-		List <DBZHero> dbzList = new ArrayList<>();
-		dbzList.add(new DBZHero("Son", "Goku", 23000));
-		dbzList.add(new DBZHero("Vegeta", "IV", 22000));
-		dbzList.add(new DBZHero("Piccolo", "Jr.", 20900));
-		dbzList.forEach(fighter -> System.out.println(fighter));
 	
 		System.out.println("-------------------------------------------------------------------------");
 		
@@ -30,31 +23,19 @@ public class Main {
 		onePieceList.add(new OnePieceHero("Ace", "Gol D.", 16790));
 		onePieceList.forEach(pirate -> System.out.println(pirate));
 
-		//Is the DBZ List Empty
-		System.out.println("DBZ list has is empty?  " + dbzList.isEmpty());
+		OnePieceHero Luffy = new OnePieceHero("Luffy", "Monkey D.", 16500);
 
-		System.out.println("-------------------------------------------------------------------------");
-		
-		//Replacing Piccolo with Son Gohan
-		dbzList.set(2, (new DBZHero("Son","Gohan", 21000)));
-		dbzList.forEach(fighter -> System.out.println(fighter));
-		
-		System.out.println("Number of DBZ Heroes: "+dbzList.size());
-		System.out.println("-------------------------------------------------------------------------");
+		OnePieceHero Zoro = new OnePieceHero("Zoro", "Roronoa", 15000);
 
-		DBZHero  [] dbzArray = dbzList.toArray(new DBZHero [dbzList.size()]);  	
-		for (DBZHero hero : dbzArray ) {
-			System.out.println(hero);
-		}
-		System.out.println("-------------------------------------------------------------------------");
+		OnePieceHero Ace = new OnePieceHero("Ace", "Gol D.", 16790);
 		
-		System.out.println("Is Piccolo included in the Current DBZ list: True/False? - - " + dbzList.contains("Piccolo")) ;
+		OnePieceLinkedList list = new OnePieceLinkedList();
 		
-		System.out.println("-------------------------------------------------------------------------");
+		list.addToFront(Luffy);
+		list.addToFront(Ace);
+		list.addToFront(Zoro);
 		
-		System.out.println("Removing Gohan from the List: ");
-		dbzList.remove(2);
-		System.out.print(dbzList.toString());
+		list.printList();
 		
 	}
 	
