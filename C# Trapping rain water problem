@@ -4,12 +4,17 @@ public class Program
 {
 	public static void Main()
 	{
-		int [] arr = {0,2,3,0,4,5};
-		//complete program
+		int [] arr = {0,2,3,0,4,5,7};
+		int numsOfElements = arr.Length;
+		
+		Console.Write("Every index will have at least: ");
+		Console.Write(Find_Total_Water(arr, numsOfElements));
+		Console.WriteLine(" blocks of water ");
+
 	}
 	
+	
 	public static int Find_Total_Water(int [] arr, int n){
-		
 		//Worst Case: O(n * n) = O(n^2)
 		//Best Case: O(n)
 		
@@ -40,7 +45,7 @@ public class Program
 			j ++)  
 		{ 	
 		
-		max = Math.Max(max,arr[i]);
+		max = Math.Max(max,arr[j]);
 		}
 		return max;
 	}
