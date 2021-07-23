@@ -1,0 +1,39 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+  //How can i optimize this time complexity ? 
+		printAllSubStrings("test",4);
+	}
+	
+	
+	
+		/*
+    Printing All Substrings of a given number
+		Should return:
+		-a
+		-ab
+		-abc
+		-b
+		-bc
+		-c    
+    */
+	
+	
+	public static void printAllSubStrings(string word, int n){
+		
+		for (int i = 0; i < n; i++){  //O(n)
+			
+			for (int len = 1; len <= n - i; len ++){ //O(n)
+				string subString = "";
+					
+				for (int j = i; j < i + len; j++){  //O(n)
+					subString += word[j];
+				}
+				Console.WriteLine(subString);
+			}
+		} 	
+	}
+}
