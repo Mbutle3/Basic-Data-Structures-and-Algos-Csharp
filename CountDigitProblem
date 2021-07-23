@@ -1,0 +1,43 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		countDigit(100) ;
+
+	}
+	
+		/*
+		
+		Finding number Of Digits In A Number
+		*Given an integral number N. The task is to find the count of digits present in this number.
+
+		Ex: N = 2019
+		Number of digits in N here is 4 and,
+		the digits are: 2, 0, 1, 9.
+		
+		*N = 1567
+		Number of digits = 4
+
+		*N = 256
+		Number of digits = 3
+
+		*N = 58964
+		Number of digits = 5
+		
+		*/
+	
+	
+	public static void countDigit(int n){
+
+		int count = 0;
+		
+		while (n != 0)
+		{
+			n = n/10;
+			++ count;
+		}
+		Console.WriteLine(count);
+	}
+}
